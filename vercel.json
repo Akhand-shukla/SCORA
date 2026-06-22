@@ -8,6 +8,18 @@
   ],
   "routes": [
     {
+      "src": "/style.css",
+      "dest": "/style.css"
+    },
+    {
+      "src": "/app.js",
+      "dest": "/app.js"
+    },
+    {
+      "src": "/trophy_bg.png",
+      "dest": "/trophy_bg.png"
+    },
+    {
       "src": "/(.*)",
       "dest": "/server.js"
     }
