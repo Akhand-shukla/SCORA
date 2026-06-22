@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 const API_TOKEN = '0582853f2ab2452583005d31e9f5a533';
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname));
 
 // Mock data fallback in case the API fails, rate-limits, or does not support the World Cup endpoints on free tier
 const mockWorldCupData = {
@@ -218,7 +218,9 @@ app.get('/api/matches', async (req, res) => {
     });
   }
 });
-
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
