@@ -219,7 +219,7 @@ app.get('/api/matches', async (req, res) => {
   }
 });
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(__dirname + '/index.html');
 });
 // Start the server
 app.listen(PORT, () => {
