@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCORA | FIFA World Cup Anime Tracker</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Manga Speedlines Background Overlay -->
+  <div class="manga-speedlines"></div>
+  <div class="glow-overlay"></div>
+
+  <!-- Main Grid Wrapper -->
+  <div class="app-container">
+    
+    <!-- Top Header -->
+    <header class="header">
+      <div class="logo-area">
+        <div class="anime-logo">
+          <span class="logo-main">SCORA</span>
+        </div>
+        <p class="tagline">FIFA WORLD CUP // CHRONICLES</p>
+      </div>
+
+      <!-- Live Simulator Toggle -->
+      <div class="simulator-panel">
+        <div class="sim-label-group">
+          <span class="sim-title">ANIME SIMULATOR</span>
+          <span class="sim-desc">Simulate live goals & dramatic events</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="simulator-toggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar">
+      <div class="filters">
+        <button class="nav-btn active" data-filter="all">
+          <span class="btn-text">ALL MATCHES</span>
+        </button>
+        <button class="nav-btn" data-filter="live">
+          <span class="btn-text">LIVE</span>
+          <span class="live-dot-pulse"></span>
+        </button>
+        <button class="nav-btn" data-filter="upcoming">
+          <span class="btn-text">UPCOMING</span>
+        </button>
+        <button class="nav-btn" data-filter="finished">
+          <span class="btn-text">COMPLETED</span>
+        </button>
+      </div>
+      <div class="api-status">
+        <span class="status-indicator" id="status-dot"></span>
+        <span class="status-text" id="status-label">FETCHING DATA...</span>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Left: Matches Panel -->
+      <section class="matches-panel">
+        <div class="panel-header">
+          <h2 class="section-title">BATTLEGROUND <span class="accent">// MATCHES</span></h2>
+        </div>
+        <div class="matches-grid" id="matches-grid">
+          <!-- Dynamically populated by app.js -->
+          <div class="loading-state">
+            <div class="spinner"></div>
+            <p>LOADING TOURNAMENT DATA...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: Standings Sidebar -->
+      <aside class="standings-panel">
+        <div class="panel-header">
+          <h2 class="section-title">STANDINGS <span class="accent">// GROUPS</span></h2>
+        </div>
+        <div class="groups-container" id="groups-container">
+          <!-- Dynamically populated by app.js -->
+        </div>
+      </aside>
+
+    </main>
+  </div>
+
+  <!-- Anime Impact Frame Overlay (Triggered on Goal) -->
+  <div class="impact-overlay" id="impact-overlay">
+    <div class="impact-flash"></div>
+    <div class="impact-text-wrapper">
+      <div class="impact-en">GOAAAAAL!!</div>
+      <div class="impact-details" id="impact-details">TEAM SCORED!</div>
+    </div>
+  </div>
+
+  <!-- Detail Modal -->
+  <div class="modal-backdrop" id="match-modal">
+    <div class="modal-content">
+      <button class="close-modal-btn" id="close-modal">&times;</button>
+      <div class="modal-header-banner">
+        <span class="modal-stage" id="modal-stage">GROUP STAGE</span>
+        <span class="modal-group" id="modal-group">GROUP A</span>
+      </div>
+      
+      <div class="modal-teams-vs">
+        <div class="modal-team home">
+          <img class="modal-crest" id="modal-home-crest" src="" alt="Home">
+          <div class="modal-team-name" id="modal-home-name">HOME</div>
+        </div>
+        <div class="modal-score-box">
+          <span class="modal-score-num" id="modal-home-score">0</span>
+          <span class="modal-score-divider">:</span>
+          <span class="modal-score-num" id="modal-away-score">0</span>
+          <div class="modal-status-badge" id="modal-status">FT</div>
+        </div>
+        <div class="modal-team away">
+          <img class="modal-crest" id="modal-away-crest" src="" alt="Away">
+          <div class="modal-team-name" id="modal-away-name">AWAY</div>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <h3 class="modal-section-title">MATCH CHRONICLE <span class="accent">// TIMELINE</span></h3>
+        <div class="timeline-container" id="modal-timeline">
+          <!-- Events populated dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="app-footer">
+    <p>SCORA PROJECT © 2026 | POWERED BY ANIME SPIRIT & FOOTBALL DATA</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
